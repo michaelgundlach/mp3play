@@ -4,7 +4,7 @@ setup(name='mp3play',
       version='0.1.0',
       py_modules=['mp3play'],
 
-      description="A simple interface for playing music from an MP3 file."""
+      description="A simple interface for playing music from an MP3 file.""",
       long_description="""
 ------------
 mp3play
@@ -28,7 +28,7 @@ Example
     mp3.play()
 
     import time
-    time.sleep(min(30, mp3.seconds())
+    time.sleep(min(30, mp3.seconds()))
     mp3.stop()
 
 Requirements

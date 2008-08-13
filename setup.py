@@ -1,7 +1,7 @@
 from setuptools import setup
 
 setup(name='mp3play',
-      version='0.1.0',
+      version='0.1.1',
       py_modules=['mp3play'],
 
       description="A simple interface for playing music from an MP3 file.""",
@@ -18,8 +18,7 @@ mp3play
 Example
 =======
 
-  Play the first 30 seconds of a file.
-  ::
+  Play the first 30 seconds of a file::
     import mp3play
 
     file = r'C:\Documents and Settings\Michael\Desktop\music.mp3'

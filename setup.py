@@ -1,8 +1,8 @@
 from setuptools import setup
 
 setup(name='mp3play',
-      version='0.1.7',
-      py_modules=['mp3play'],
+      version='0.1.9',
+      packages=['mp3play'],
 
       description="A simple interface for playing music from an MP3 file.""",
       long_description=r"""
@@ -15,6 +15,11 @@ mp3play
   interface for the common case (playing an entire MP3), with an API for
   more complex tasks (e.g. playing from seconds 30 to 45 of an MP3).
 
+  Note: if you are looking for complex cross-platform audio control, try
+  pyglet.  After easy_installing pyglet, it requires a separate manual
+  installation of AVlib libraries, which is why I wrote mp3play as an
+  easy_installable alternative.
+
 Example
 =======
 
@@ -23,7 +28,7 @@ Example
     import mp3play
 
     file = r'C:\Documents and Settings\Michael\Desktop\music.mp3'
-    mp3 = mp3play.Mp3(file)
+    mp3 = mp3play.load(file)
 
     mp3.play()
 

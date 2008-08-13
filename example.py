@@ -1,11 +1,10 @@
 import mp3play
 
-file = mp3play._f
-mp3 = mp3play.Mp3(file)
+clip = mp3play.load(r'C:\music.mp3')
 
-mp3.play()
+clip.play()
 
 # Let it play for up to 30 seconds, then stop it.
 import time
-time.sleep(min(5, mp3.seconds()))
-mp3.stop()
+time.sleep(min(5, clip.seconds()))
+clip.stop()

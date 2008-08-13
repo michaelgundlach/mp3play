@@ -2,7 +2,7 @@ import random
 import time
 from ctypes import windll, c_buffer
 
-class __mci:
+class _mci:
     def __init__(self):
         self.w32mci = windll.winmm.mciSendStringA
         self.w32mcierror = windll.winmm.mciGetErrorStringA
@@ -33,7 +33,7 @@ class Mp3(object):
         self.filename = filename
         self._alias = 'mp3_%s' % str(random.random())
 
-        self._mci = __mci()
+        self._mci = _mci()
 
         self._mci.directsend(r'open "%s" alias %s' % (filename, self._alias ))
         self._mci.directsend('set %s time format milliseconds' % self._alias)

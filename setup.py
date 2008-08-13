@@ -1,7 +1,7 @@
 from setuptools import setup
 
 setup(name='mp3play',
-      version='0.1.6',
+      version='0.1.7',
       py_modules=['mp3play'],
 
       description="A simple interface for playing music from an MP3 file.""",

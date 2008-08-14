@@ -1,5 +1,5 @@
 import random
-import time
+
 from ctypes import windll, c_buffer
 
 class _mci:
@@ -28,7 +28,7 @@ class _mci:
         return (err, buf)
 
 # TODO: detect errors in all mci calls
-class Mp3(object):
+class AudioClip(object):
     def __init__(self, filename):
         self.filename = filename
         self._alias = 'mp3_%s' % str(random.random())
@@ -38,7 +38,7 @@ class Mp3(object):
         self._mci.directsend(r'open "%s" alias %s' % (filename, self._alias ))
         self._mci.directsend('set %s time format milliseconds' % self._alias)
 
-        err,buf=self._mci.directsend('status %s length ' % self._alias)
+        err, buf=self._mci.directsend('status %s length' % self._alias)
         self._length_ms = int(buf)
 
     def play(self, start_ms=None, end_ms=None):
@@ -47,11 +47,25 @@ class Mp3(object):
         err,buf=self._mci.directsend('play %s from %d to %d'
                 % (self._alias, start_ms, end_ms) )
 
+    def isplaying(self):
+        return self._mode() == 'playing'
+
+    def _mode(self):
+        err, buf = self._mci.directsend('status %s mode' % self._alias)
+        return buf
+
+    def pause(self):
+        self._mci.directsend('pause %s' % self._alias)
+
+    def unpause(self):
+        self._mci.directsend('resume %s' % self._alias)
+
+    def ispaused(self):
+        return self._mode() == 'paused'
+
     def stop(self):
         self._mci.directsend('stop %s' % self._alias)
-
-    def seconds(self):
-        return int(round(float(self.milliseconds()) / 1000))
+        self._mci.directsend('seek %s to start' % self._alias)
 
     def milliseconds(self):
         return self._length_ms

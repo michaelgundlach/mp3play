@@ -1,7 +1,7 @@
 from setuptools import setup
 
 setup(name='mp3play',
-      version='0.1.9',
+      version='0.1.10',
       packages=['mp3play'],
 
       description="A simple interface for playing music from an MP3 file.""",
@@ -27,14 +27,14 @@ Example
 
     import mp3play
 
-    file = r'C:\Documents and Settings\Michael\Desktop\music.mp3'
-    mp3 = mp3play.load(file)
+    filename = r'C:\Documents and Settings\Michael\Desktop\music.mp3'
+    clip = mp3play.load(filename)
 
-    mp3.play()
+    clip.play()
 
     import time
-    time.sleep(min(30, mp3.seconds()))
-    mp3.stop()
+    time.sleep(min(30, clip.seconds()))
+    clip.stop()
 
 Requirements
 ============

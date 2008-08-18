@@ -30,6 +30,7 @@ class _mci:
 # TODO: detect errors in all mci calls
 class AudioClip(object):
     def __init__(self, filename):
+        filename = filename.replace('/', '\\')
         self.filename = filename
         self._alias = 'mp3_%s' % str(random.random())
 
@@ -40,6 +41,11 @@ class AudioClip(object):
 
         err, buf=self._mci.directsend('status %s length' % self._alias)
         self._length_ms = int(buf)
+
+    def volume(self, level):
+        """Sets the volume between 0 and 100."""
+        self._mci.directsend('setaudio %s volume to %d' %
+                (self._alias, level * 10) )
 
     def play(self, start_ms=None, end_ms=None):
         start_ms = 0 if not start_ms else start_ms

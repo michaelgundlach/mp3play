@@ -4,4 +4,6 @@
 # isn't one already!
 
 /cygdrive/c/Program\ Files/Python25/python.exe setup.py bdist_egg sdist upload
-/cygdrive/c/Program\ Files/Python24/python.exe setup.py bdist_egg upload
+# don't do 2.4 because it doesn't work for 2.4 yet -- a couple dumb syntax
+# things.
+#/cygdrive/c/Program\ Files/Python24/python.exe setup.py bdist_egg upload

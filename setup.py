@@ -1,7 +1,7 @@
 from setuptools import setup
 
 setup(name='mp3play',
-      version='0.1.10',
+      version='0.1.15',
       packages=['mp3play'],
 
       description="A simple interface for playing music from an MP3 file.""",
@@ -41,7 +41,9 @@ Requirements
 
   Requires Windows XP at the moment, but the goal is to make a
   cross-platform module.  Feel free to send patches to add Linux and
-  Mac support!
+  Mac support!  Note that the module's purpose is to be easy_installable
+  with no other work needed by the user, so things like AVLib are out unless
+  that can be easy_installed automatically alongside mp3play.
 
 Resources
 =========
@@ -64,7 +66,7 @@ Resources
       keywords = "mp3 api play music audio python module",
 
       classifiers=[
-          'Development Status :: 5 - Production/Stable',
+          'Development Status :: 3 - Alpha',
           'Environment :: Win32 (MS Windows)',
           'Intended Audience :: Developers',
           'License :: OSI Approved :: Apache Software License',

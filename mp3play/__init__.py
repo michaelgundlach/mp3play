@@ -28,9 +28,14 @@ class AudioClip(object):
         else:
             return self._clip.play(start_ms, end_ms)
 
+    def volume(self, level):
+        """Sets the volume between 0 and 100."""
+        assert level >=0 and level <= 100
+        return self._clip.volume(level)
+
     def isplaying(self):
         """Returns True if the clip is currently playing.  Note that if a
-        clip is paused, or if you called play() on a clip and playing has 
+        clip is paused, or if you called play() on a clip and playing has
         completed, this returns False."""
         return self._clip.isplaying()
 

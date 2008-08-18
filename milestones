@@ -1,0 +1,22 @@
+Where I'd like the package to be, per version number.
+
+0.2: Windows API fleshed out
+0.3: Windows API complete
+0.4: Mac or Linux added, as complete as Windows in 0.2
+0.5: Mac or Linux complete
+0.6: Final OS added, as in 0.4
+0.7: Final OS complete
+1.0: All APIs complete
+
+This plan might get shot to heck, but it's a nice road to try to follow.
+
+Eventually:
+
+rename to audioplay and deprecate mp3play.  As it can play other stuff too,
+WAVs at least.  I should only limit it to those files that can be made to play
+on all 3 systems, though, so that code that uses this module will Just Work.
+
+Also, pyglet seems to do all this does and more.  However, it requires AVLib
+and is a heavier download, so for Windows at least mp3play seems to have
+something going for it.  If I can't get Linux and/or Mac to work without
+using AVLib, though, then I'm no better off than pyglet!

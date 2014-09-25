@@ -9,7 +9,7 @@ class _mci:
 
     def send(self, command):
         buffer = c_buffer(255)
-        errorcode = self.w32mci(str(command), buffer, 254, 0)
+        errorcode = self.w32mci(str(command).encode(), buffer, 254, 0)
         if errorcode:
             return errorcode, self.get_error(errorcode)
         else:
@@ -24,7 +24,7 @@ class _mci:
     def directsend(self, txt):
         (err, buf) = self.send(txt)
         if err != 0:
-            print 'Error %s for "%s": %s' % (str(err), txt, buf)
+            print('Error %s for "%s": %s' % (str(err), txt, buf))
         return (err, buf)
 
 # TODO: detect errors in all mci calls
